@@ -20,38 +20,46 @@ Term 0112
 		<h1>Game Collector</h1>
 		<form action="" method="post">
 			<fieldset>
-			<legend>Add A Game</legend>
-			<ul>
-				<li><label for="gname">Game Name:</label><input type="text" id="gname" /></li>
-				<li>Platform:
+				<legend>Add A Game</legend>
 					<ul>
-						<li><input type="radio" checked value="Xbox 360" id="xbox360" name="platform" /><label for="xbox360">Xbox 360</label></li>
-						<li><input type="radio" value="Playstation 3" id="ps3" name="platform" /><label for="ps3">Playstation 3</label></li>
-						<li><input type="radio" value="Nintendo Wii" id="wii" name="platform" /><label for="wii">Nintendo Wii</label></li>
-						<li><input type="radio" value="Nintendo DS/DSi/3DS" id="ds" name="platform" /><label for="ds">Nintendo DS/DSi/3DS</label></li>
-						<li><input type="radio" value="Other Handheld" id="otherHandheld" name="platform" /><label for="otherHandheld">Other Handheld</label></li>
+						<li><label for="gname">Game Name:</label><input type="text" id="gname" /></li>
+						<li>Platform:
+							<ul>
+								<li><input type="radio" checked value="Xbox 360" id="xbox360" name="platform" /><label for="xbox360">Xbox 360</label></li>
+								<li><input type="radio" value="Playstation 3" id="ps3" name="platform" /><label for="ps3">Playstation 3</label></li>
+								<li><input type="radio" value="Nintendo Wii" id="wii" name="platform" /><label for="wii">Nintendo Wii</label></li>
+								<li><input type="radio" value="Nintendo DS/DSi/3DS" id="ds" name="platform" /><label for="ds">Nintendo DS/DSi/3DS</label></li>
+								<li><input type="radio" value="Other Handheld" id="otherHandheld" name="platform" /><label for="otherHandheld">Other Handheld</label></li>
+							</ul>
+						</li>
+						<li>Genre:
+							<ul>
+								<li><input type="checkbox" checked value="RPG" id="rpg" /><label for="rpg">RPG</label></li>
+								<li><input type="checkbox" value="FPS" id="fps" /><label for="fps">FPS</label></li>
+								<li><input type="checkbox" value="Action/Adventure" id="actAdv" /><label for="actAdv">Action/Adventure</label></li>
+								<li><input type="checkbox" value="RTS" id="rts" /><label for="rts">RTS</label></li>
+								<li><input type="checkbox" value="Simulation" id="sim" /><label for="sim">Simulation</label></li>
+								<li><input type="checkbox" value="Sports" id="sports" /><label for="sports">Sports</label></li>
+								<li><input type="checkbox" value="Casual" id="casual" /><label for="casual">Casual</label></li>
+							</ul>
+						</li>
+						<li>Replay Rating:</li>
+							<label for="rating">On a scale of 1 to 10, how likely are you to play this game more than once:</label><input type="range" min="1" max="10" name="rating" type="range"><br>
+						<li><label for="purchaseDate">Date Of Purchase:</label><input type="date" min="1970-01-01" max="2020-12-31" id="purchaseDate" name"purchaseDate" placeholder="2012-01-05" /></li><br>
+						<li>
+							<label for="numPlayers">How many players are supported?</label>
+							<select id="numPlayers">
+								<option value="1">1, or singleplayer only</option>
+								<option value="2">2 Players</option>
+								<option value="3">3 Players</option>
+								<option value="4&gt;">4 or more players</option>
+							</select>
+						</li>
+						<li><label for="notes">Add a note about your game:</label><textarea id="notes"></textarea></li>		
 					</ul>
-				</li>
-				<li>Genre:
-					<ul>
-						<li><input type="checkbox" checked value="RPG" id="rpg" /><label for="rpg">RPG</label></li>
-						<li><input type="checkbox" value="FPS" id="fps" /><label for="fps">FPS</label></li>
-						<li><input type="checkbox" value="Action/Adventure" id="actAdv" /><label for="actAdv">Action/Adventure</label></li>
-						<li><input type="checkbox" value="RTS" id="rts" /><label for="rts">RTS</label></li>
-						<li><input type="checkbox" value="Simulation" id="sim" /><label for="sim">Simulation</label></li>
-						<li><input type="checkbox" value="Sports" id="sports" /><label for="sports">Sports</label></li>
-						<li><input type="checkbox" value="Casual" id="casual" /><label for="casual">Casual</label></li>
-					</ul>
-				</li>
-				<li>Replay Rating:</li>
-					<label for="rating">On a scale of 1 to 10, how likely are you to play this game more than once:</label><br>
-					<input type="range" min="1" max="10" name="rating" type="range">
-			</ul>
-			</fieldset>
-			
-		
+			</fieldset><br>
+			<input type="submit" value="Add game to your inventory."/><p>
+			<a href="#">Clear Stored Data</a>&#32;<a href="#">Display Data</a>
 		</form>
-	
 	</body>
-
 </html>
