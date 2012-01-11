@@ -1,0 +1,22 @@
+body {
+	font-family: "Times New Roman";
+	width: 480px;
+	height: 690px;
+}
+
+
+
+
+h1 {
+	margin: 10px 20px;
+	font-family:  "Courier New";
+}
+
+
+
+
+p {
+	color: red;
+	font-family: Arial;
+
+}
