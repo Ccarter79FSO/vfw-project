@@ -1,6 +1,6 @@
 //Wait until the DOM is ready.
 window.addEventListener("DOMContentLoaded", function(){
-	alert(localStorage.value(0));
+/* 	alert(localStorage.value(0)); */                                        
 	
 	//getElementById Function
 	function $(x){
@@ -29,21 +29,22 @@ window.addEventListener("DOMContentLoaded", function(){
 		var radios = document.forms[0].platform;
 		for (i=0; i<radios.length; i++) {
 			if (radios[i].checked) {
-				platformValue = radios[i];
+				platformValue = radios[i].value;
 			}
 		}
 	}
 	
-	function getSelectedRadio2(){
-		var radios = document.forms[0].genre;
-		for (i=0; i<radios.length; i++) {
-			if (radios[i].checked) {
-				genreValue = radios[i];
+	function getCheckBoxValue1(){
+		var checkbox = document.forms[0].genre;
+		for (i=0; i<checkbox.length; i++) {
+			if (checkbox[i].checked) {
+				genreValue = checkbox[i].value;
+				genreArray.push(genreValue);
 			}
 		}
 	}
 	
-	function getCheckBoxValue(){
+	function getCheckBoxValue2(){
 		if($('fav').checked) {
 			favoriteValue = $('fav').value;
 		} else {
@@ -61,7 +62,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		var item		  	= {};
 			item.gname		= ["Game Name:", $('gname').value];
 			item.platform	= ["Platform:", platformValue];
-			item.genre		= ["Genre:", genreValue];
+			item.genre		= ["Genre:", genreArray];
 			item.fav		= ["Favorite:", favoriteValue];
 			item.rating		= ["Rating:", $('rating').value];
 			item.pdate		= ["Purchase Date:", $('pdate').value];
@@ -78,6 +79,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	var numPlayers = ["--Number of Players--", "1, or Single Player only", "2 Players", "3 Players", "4 or more Players"],
 		platformValue,
 		genreValue,
+		genreArray = [],
 		favoriteValue = "No"
 	;
 	makeCats();
