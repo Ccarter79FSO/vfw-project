@@ -52,6 +52,26 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 	}
 	
+	function toggleControls(n){
+		switch(n){
+			case "on":
+				$('gameForm').style.display = "none";
+				$('clear').style.display = "inline";
+				$('displayLink').style.display = "none";
+				$('addNew').style.display = "inline";
+				break;
+			case "off":
+				$('gameForm').style.display = "block";
+				$('clear').style.display = "inline";
+				$('displayLink').style.display = "inline";
+				$('addNew').style.display = "none";
+				$('items').style.display = "none";
+				break;
+			default:
+				return false;
+		}
+	}
+	
 	function storeData () {
 		var id 			  	= Math.floor(Math.random()*100000001);
 		//gather up all our form field values aand store in an object
@@ -75,12 +95,17 @@ window.addEventListener("DOMContentLoaded", function(){
 	}
 	
 	function getData(){
+		toggleControls("on"); 
+		if (localStorage.length===0){
+			alert("There is no data in storage!");
+		}
 		//write data from local storage to the browswer
 		var makeDiv = document.createElement('div');
 		makeDiv.setAttribute("id", "items");
 		var makeList = document.createElement('ul');
 		makeDiv.appendChild(makeList);
 		document.body.appendChild(makeDiv);
+		$('items').style.display = "block";
 		for (var i=0, j=localStorage.length; i<j; i++){
 			var makeLi = document.createElement('li');
 			makeList.appendChild(makeLi);
@@ -100,6 +125,17 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	}
 	
+	function clearLocal(){
+		if (localStorage.lenth===0){
+			alert("There is no data to clear.")
+		}else{
+			localStorage.clear();
+			alert("All data have been deleted.");
+			window.location.reload();
+			return false;
+		}
+	}
+	
 	//variable defaults
 	var numPlayers = ["--Number of Players--", "1, or Single Player only", "2 Players", "3 Players", "4 or more Players"],
 		platformValue,
@@ -112,10 +148,8 @@ window.addEventListener("DOMContentLoaded", function(){
 	//set link & submit click events
 	var displayLink = $('displayLink');
 	displayLink.addEventListener("click",getData);
-/*
 	var clearLink = $('clear');
 	clearLink.addEventListener("click", clearLocal);
-*/
 	var save = $('submit');
 	save.addEventListener("click", storeData);
 
