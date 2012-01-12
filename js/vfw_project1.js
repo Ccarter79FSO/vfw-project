@@ -1,3 +1,10 @@
+/*
+Christopher Carter
+VFW Project week 2
+Term 0112
+*/
+
+
 //Wait until the DOM is ready.
 window.addEventListener("DOMContentLoaded", function(){
                                       
@@ -59,6 +66,7 @@ window.addEventListener("DOMContentLoaded", function(){
 				$('clear').style.display = "inline";
 				$('displayLink').style.display = "none";
 				$('addNew').style.display = "inline";
+				$('addGameFieldset').style.display = "block";
 				break;
 			case "off":
 				$('gameForm').style.display = "block";
