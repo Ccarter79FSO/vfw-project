@@ -21,7 +21,8 @@ Term 0112
 		<h1>Game Collector</h1>
 		<form action="#" method="post" id="gameForm" />
 			<fieldset id="addGameFieldset">
-				<legend>Add A Game</legend>
+				<legend></legend>
+				<span>Add A Game</span>
 					<ul>
 						<li><label for="gname">Game Name:</label><input type="text" id="gname" /></li>
 						<li>Platform:
@@ -49,12 +50,12 @@ Term 0112
 								<li><input type="checkbox" value="Fav" id="fav" /><label for="fav">Yes</label></li>
 							</ul>
 						</li>
-						<li>How likely are you to play this game more than once?
+						<li>Replay-ability, on a scale of 1 to 10.
 							<ul>
 								<li><label for="rating"></label><input type="range" min="1" max="10" id="rating" name="rating" type="range"></li>
 							</ul>
 						</li>
-						<li><label for="purchaseDate">Date Of Purchase:</label><input type="date" min="1970-01-01" max="2020-12-31" id="pdate" name="purchaseDate" placeholder="2012-01-05" /></li>
+						<li><label for="purchaseDate">Date of purchase:</label><input type="date" min="1970-01-01" max="2020-12-31" id="pdate" name="purchaseDate" placeholder="2012-01-05" /></li>
 						<li id="select"><label for="numPlayers">How many players are supported?</label><br /></li>
 						<li><label for="notes">Add a note about your game:</label><textarea id="notes"></textarea></li>		
 					</ul>

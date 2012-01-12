@@ -1,35 +1,93 @@
 body {
-	font-family: Helvetica;
-	color: black;
-	font-weight: lighter;
-
-	width: 480px;
-	height: 690px;
-/*
-	background-image: linear-gradient(270deg, #FFF 0%, #000 100%);
-	background-image: linear-gradient(top, #FF 0%, #000 100%);
-*/
-	background-image: -webkit-linear-gradient(#000 0%, #FFF 25%, #eee 75%, #000 100%);
+	font-size: 13px;
+	font-style: italic;
+	font-weight: bold;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
+	font-variant: small-caps;
+	background-color: #df6000;
 }
 
 
+input[type=submit] {
+	font-family: Helvetica, Verdana, Arial, sans-serif;
+	font-size: medium;
+	background-position: center center;
+	color: black;
+	background-color: #ffde7e;
+}
 
+a {
+	font-variant: normal;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
+	border-style: outset;
+	border-color: #dbdbdb;
+	border-width: 2px;
+	font-size: 9px;
+	text-decoration: none;
+	padding: 3px;
+	margin: 5px;
+	background-color: #ffde7e;
+	color: black;
+}
+
+fieldset {
+	border-width: 3px;
+	background-color: #ffde7e;
+	border-color: black;
+	border-style: dashed;
+}
+
+legend {
+	font-variant: small-caps;
+	font-size: large;
+	font-weight: bold;
+	font-family: fantasy;
+}
 
 h1 {
-	margin: 10px 20px;
-	font-family: fantasy;
-	color: silver;
+	margin-left: 0px;
+	margin-bottom: 0px;
+	margin-right: -5px;
+	margin-top: -5px;
+	text-shadow: 2px 2px 2px #e4e6e4;
+	font-variant: small-caps;
+	font-weight: bold;
+	font-size: 36px;
+	font-family: Helvetica, Verdana, Arial, sans-serif;
 }
 
-
-
-
-p {
-	color: red;
-	font-family: Arial;
-
+span {
+	line-height: 1.1em;
+	font-size: 18px;
+	padding: 2px;
+	font-variant: small-caps;
+	font-weight: bold;
+	font-family: Helvetica, Verdana, Arial, serif;
 }
 
-li {
-	
+input[type=text] {
+	margin-bottom: 3px;
+	display: block;
 }
+
+textarea {
+	display: block;
+}
+
+input[type=date] {
+	display: block;
+}
+
+h2 {
+	text-shadow: 2px 2px 2px #e5e5e5;
+}
+
+div {
+	font-size: large;
+	margin-top: 10px;
+}
+
+select {
+	margin-bottom: 3px;
+}
+
