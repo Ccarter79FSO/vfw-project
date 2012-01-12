@@ -1,6 +1,6 @@
 //Wait until the DOM is ready.
 window.addEventListener("DOMContentLoaded", function(){
-/* 	alert(localStorage.value(0)); */                                        
+                                      
 	
 	//getElementById Function
 	function $(x){
@@ -25,7 +25,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	}
 	
 	//find value of selected radio button
-	function getSelectedRadio1(){
+	function getSelectedRadio(){
 		var radios = document.forms[0].platform;
 		for (i=0; i<radios.length; i++) {
 			if (radios[i].checked) {
@@ -56,9 +56,9 @@ window.addEventListener("DOMContentLoaded", function(){
 		var id 			  	= Math.floor(Math.random()*100000001);
 		//gather up all our form field values aand store in an object
 		//object properties are going to contain and array with the form label and input value
-		getSelectedRadio1();
-		getSelectedRadio2();
-		getCheckBoxValue();
+		getSelectedRadio();
+		getCheckBoxValue1();
+		getCheckBoxValue2();
 		var item		  	= {};
 			item.gname		= ["Game Name:", $('gname').value];
 			item.platform	= ["Platform:", platformValue];
@@ -74,6 +74,31 @@ window.addEventListener("DOMContentLoaded", function(){
 			
 	}
 	
+	function getData(){
+		//write data from local storage to the browswer
+		var makeDiv = document.createElement('div');
+		makeDiv.setAttribute("id", "items");
+		var makeList = document.createElement('ul');
+		makeDiv.appendChild(makeList);
+		document.body.appendChild(makeDiv);
+		for (var i=0, j=localStorage.length; i<j; i++){
+			var makeLi = document.createElement('li');
+			makeList.appendChild(makeLi);
+			var key = localStorage.key(i);
+			var value = localStorage.getItem(key);
+			//convert string from local storage value back to an object using JSON.parse()
+			var obj = JSON.parse(value);
+			var makeSubList = document.createElement('ul');
+			makeLi.appendChild(makeSubList);
+			for(var n in obj){
+				var makeSubLi = document.createElement('li');
+				makeSubList.appendChild(makeSubLi);
+				var optSubText = obj[n][0]+" "+obj[n][1];
+				makeSubLi.innerHTML = optSubText;
+			}
+		}
+	
+	}
 	
 	//variable defaults
 	var numPlayers = ["--Number of Players--", "1, or Single Player only", "2 Players", "3 Players", "4 or more Players"],
@@ -85,9 +110,9 @@ window.addEventListener("DOMContentLoaded", function(){
 	makeCats();
 	
 	//set link & submit click events
-/*
 	var displayLink = $('displayLink');
 	displayLink.addEventListener("click",getData);
+/*
 	var clearLink = $('clear');
 	clearLink.addEventListener("click", clearLocal);
 */
