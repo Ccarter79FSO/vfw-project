@@ -1,3 +1,10 @@
+/*
+Christopher Carter
+VFW Project week 2
+Term 0112
+*/
+
+
 body {
 	font-size: 13px;
 	font-style: italic;
@@ -89,5 +96,13 @@ div {
 
 select {
 	margin-bottom: 3px;
+}
+
+div[id=items] {
+	border-width: 3px;
+	border-color: black;
+	border-style: dashed;
+	background-color: #ffde7e;
+	font-size: 13px;
 }
 
