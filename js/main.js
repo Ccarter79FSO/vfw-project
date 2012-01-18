@@ -106,7 +106,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			item.notes		= ["Notes:", $('notes').value];
 		//save data to local storage: use stringify to convert our object to a string
 		localStorage.setItem(id, JSON.stringify(item));
-		alert("Contact Saved!");
+		alert("Game has been added to your inventory!!");
 			
 	}
 	
@@ -168,7 +168,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		deleteLink.href = '#';
 		deleteLink.key = key;
 		var deleteText = "Delete Game";
-		//deleteLink.addEventListener('click', deleteItem);
+		deleteLink.addEventListener('click', deleteItem);
 		deleteLink.innerHTML = deleteText;
 		linksLi.appendChild(deleteLink);
 	}
@@ -226,9 +226,10 @@ window.addEventListener("DOMContentLoaded", function(){
 */
 		var checkbox = document.forms[0].genre;
 		for (var i=0; i<checkbox.length; i++){
-			if (checkbox[i].value == "RPG" && item.genre[1] == "RPG") {
+			if (checkbox[i].value == "RPG" && item.genre[1] == "RPG" || checkbox[i].value == "FPS" && item.genre[1] == "FPS" || checkbox[i].value == "Action/Adventure" && item.genre[1] == "Action/Adventure" || checkbox[i].value == "RTS" && item.genre[1] == "RTS" || checkbox[i].value == "Simulation" && item.genre[1] == "Simulation" || checkbox[i].value == "Sports" && item.genre[1] == "Sports" || checkbox[i].value == "Casual" && item.genre[1] == "Casual") {
 				checkbox[i].setAttribute("checked", "checked");
-			}else if(checkbox[i].value == "FPS" && item.genre[1] == "FPS"){
+			/*
+}else if(checkbox[i].value == "FPS" && item.genre[1] == "FPS"){
 				checkbox[i].setAttribute("checked", "checked");
 			}else if(checkbox[i].value == "Action/Adventure" && item.genre[1] == "Action/Adventure"){
 				checkbox[i].setAttribute("checked", "checked");
@@ -240,6 +241,7 @@ window.addEventListener("DOMContentLoaded", function(){
 				checkbox[i].setAttribute("checked", "checked");
 			}else if(checkbox[i].value == "Casual" && item.genre[1] == "Casual"){
 				checkbox[i].setAttribute("checked", "checked");
+*/
 			}
 		}									
 		if(item.fav[1] == "Fav"){
@@ -259,6 +261,17 @@ window.addEventListener("DOMContentLoaded", function(){
 		//so we can use that value when we save the data we edited
 		editSubmit.addEventListener('click', validate);
 		editSubmit.key = this.key;	
+	}
+	
+	function deleteItem(){
+		var ask = confirm("Are you sure you want to delete this game from your inventory?");
+		if (ask){
+			localStorage.removeItem(this.key);
+			alert("Game has been deleted!");
+			window.location.reload();	
+		}else{
+			alert("Game has not been deleted.");
+		}
 	}
 	
 	function clearLocal(){

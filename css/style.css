@@ -1,6 +1,7 @@
 /*
 Christopher Carter
 VFW Project week 3
+
 Term 0112
 */
 
@@ -99,10 +100,15 @@ select {
 }
 
 div[id=items] {
+	font-family: Helvetica, Verdana, Arial, sans-serif;
+	font-variant: normal;
+	font-style: normal;
+	font-weight: normal;
 	border-width: 3px;
 	border-color: black;
 	border-style: dashed;
 	background-color: #ffde7e;
 	font-size: 13px;
+	
 }
 
