@@ -219,17 +219,17 @@ window.addEventListener("DOMContentLoaded", function(){
 			}
 		}
 */
-/*
-		if(item.genre[1] == "RPG" || "FPS" || "Action/Adventure" || "RTS" || "Simulation" || "Sports" || "Casual"){
+		if(item.genre[1] == ("RPG" || "FPS" || "Action/Adventure" || "RTS" || "Simulation" || "Sports" || "Casual")){
 			$('genre').setAttribute('checked','checked');
 		}
-*/
+/*
 		var checkbox = document.forms[0].genre;
 		for (var i=0; i<checkbox.length; i++){
-			if (checkbox[i].value == "RPG" && item.genre[1] == "RPG" || checkbox[i].value == "FPS" && item.genre[1] == "FPS" || checkbox[i].value == "Action/Adventure" && item.genre[1] == "Action/Adventure" || checkbox[i].value == "RTS" && item.genre[1] == "RTS" || checkbox[i].value == "Simulation" && item.genre[1] == "Simulation" || checkbox[i].value == "Sports" && item.genre[1] == "Sports" || checkbox[i].value == "Casual" && item.genre[1] == "Casual") {
+			if (checkbox[i].value == ("RPG" || "FPS" || "Action/Adventure" || "RTS" || "Simulation" || "Sports" || "Casual") && item.genre[1] == ("RPG" || "FPS" || "Action/Adventure" || "RTS" || "Simulation" || "Sports" || "Casual")) {
 				checkbox[i].setAttribute("checked", "checked");
-			/*
-}else if(checkbox[i].value == "FPS" && item.genre[1] == "FPS"){
+*/
+/*
+			}else if(checkbox[i].value == "FPS" && item.genre[1] == "FPS"){
 				checkbox[i].setAttribute("checked", "checked");
 			}else if(checkbox[i].value == "Action/Adventure" && item.genre[1] == "Action/Adventure"){
 				checkbox[i].setAttribute("checked", "checked");
@@ -241,9 +241,9 @@ window.addEventListener("DOMContentLoaded", function(){
 				checkbox[i].setAttribute("checked", "checked");
 			}else if(checkbox[i].value == "Casual" && item.genre[1] == "Casual"){
 				checkbox[i].setAttribute("checked", "checked");
-*/
 			}
-		}									
+		}	
+*/								
 		if(item.fav[1] == "Fav"){
 			$('fav').setAttribute('checked','checked');
 		}
