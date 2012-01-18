@@ -198,52 +198,28 @@ window.addEventListener("DOMContentLoaded", function(){
 				radios[i].setAttribute("checked", "checked");
 			}
 		}
-/*
 		var checkbox = document.forms[0].genre;
 		for (i=0; i<checkbox.length; i++) {
 			var checkBoxIndex = checkbox[i];
-			if (checkBoxIndex.value == "RPG" && item.genre[1] == "RPG") {
-				checkBoxIndex.setAttribute("checked", "checked");
-			}else if(checkBoxIndex == "FPS" && item.genre[1] == "FPS"){
-				checkBoxIndex.setAttribute("checked", "checked");
-			}else if(checkBoxIndex == "Action/Adventure" && item.genre[1] == "Action/Adventure"){
-				checkBoxIndex.setAttribute("checked", "checked");
-			}else if(checkBoxIndex == "RTS" && item.genre[1] == "RTS"){
-				checkBoxIndex.setAttribute("checked", "checked");
-			}else if(checkBoxIndex == "Simulation" && item.genre[1] == "Simulation"){
-				checkBoxIndex.setAttribute("checked", "checked");
-			}else if(checkBoxIndex == "Sports" && item.genre[1] == "Sports"){
-				checkBoxIndex.setAttribute("checked", "checked");
-			}else if(checkBoxIndex == "Casual" && item.genre[1] == "Casual"){
-				checkBoxIndex.setAttribute("checked", "checked");
+			for (ii=0;ii<item.genre[1].length;ii++){
+				var genreAryIndex = item.genre[1][ii];
+				if (checkBoxIndex.value == "RPG" && genreAryIndex == "RPG") {
+					checkBoxIndex.setAttribute("checked", "checked");
+				}else if(checkBoxIndex.value == "FPS" && genreAryIndex == "FPS"){
+					checkBoxIndex.setAttribute("checked", "checked");
+				}else if(checkBoxIndex.value == "Action/Adventure" && genreAryIndex == "Action/Adventure"){
+					checkBoxIndex.setAttribute("checked", "checked");
+				}else if(checkBoxIndex.value == "RTS" && genreAryIndex == "RTS"){
+					checkBoxIndex.setAttribute("checked", "checked");
+				}else if(checkBoxIndex.value == "Simulation" && genreAryIndex == "Simulation"){
+					checkBoxIndex.setAttribute("checked", "checked");
+				}else if(checkBoxIndex.value == "Sports" && genreAryIndex == "Sports"){
+					checkBoxIndex.setAttribute("checked", "checked");
+				}else if(checkBoxIndex.value == "Casual" && genreAryIndex == "Casual"){
+					checkBoxIndex.setAttribute("checked", "checked");
+				}
 			}
 		}
-*/
-		if(item.genre[1] == ("RPG" || "FPS" || "Action/Adventure" || "RTS" || "Simulation" || "Sports" || "Casual")){
-			$('genre').setAttribute('checked','checked');
-		}
-/*
-		var checkbox = document.forms[0].genre;
-		for (var i=0; i<checkbox.length; i++){
-			if (checkbox[i].value == ("RPG" || "FPS" || "Action/Adventure" || "RTS" || "Simulation" || "Sports" || "Casual") && item.genre[1] == ("RPG" || "FPS" || "Action/Adventure" || "RTS" || "Simulation" || "Sports" || "Casual")) {
-				checkbox[i].setAttribute("checked", "checked");
-*/
-/*
-			}else if(checkbox[i].value == "FPS" && item.genre[1] == "FPS"){
-				checkbox[i].setAttribute("checked", "checked");
-			}else if(checkbox[i].value == "Action/Adventure" && item.genre[1] == "Action/Adventure"){
-				checkbox[i].setAttribute("checked", "checked");
-			}else if(checkbox[i].value == "RTS" && item.genre[1] == "RTS"){
-				checkbox[i].setAttribute("checked", "checked");
-			}else if(checkbox[i].value == "Simulation" && item.genre[1] == "Simulation"){
-				checkbox[i].setAttribute("checked", "checked");
-			}else if(checkbox[i].value == "Sports" && item.genre[1] == "Sports"){
-				checkbox[i].setAttribute("checked", "checked");
-			}else if(checkbox[i].value == "Casual" && item.genre[1] == "Casual"){
-				checkbox[i].setAttribute("checked", "checked");
-			}
-		}	
-*/								
 		if(item.fav[1] == "Fav"){
 			$('fav').setAttribute('checked','checked');
 		}
