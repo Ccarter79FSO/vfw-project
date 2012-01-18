@@ -80,8 +80,16 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 	}
 	
-	function storeData () {
-		var id 			  	= Math.floor(Math.random()*100000001);
+	function storeData (key) {
+		//if there is no key, then this is a brand new item and needs a new key
+		if(!key){
+			var id 			  	= Math.floor(Math.random()*100000001);
+		//set the id to the existing key we're editing so that it will save over the data
+		//the key is the same key that's been passed along from the editSubmit event handler
+		//to the validate function, and then passed here in the storeData function
+		}else {
+			id = key;
+		}
 		//gather up all our form field values aand store in an object
 		//object properties are going to contain and array with the form label and input value
 		getSelectedRadio();
@@ -124,12 +132,16 @@ window.addEventListener("DOMContentLoaded", function(){
 			var obj = JSON.parse(value);
 			var makeSubList = document.createElement('ul');
 			makeLi.appendChild(makeSubList);
+			var breakTag = document.createElement('br');
+			makeLi.appendChild(breakTag);
 			for(var n in obj){
 				var makeSubLi = document.createElement('li');
 				makeSubList.appendChild(makeSubLi);
 				var optSubText = obj[n][0]+" "+obj[n][1];
 				makeSubLi.innerHTML = optSubText;
 				makeSubList.appendChild(linksLi);
+
+				
 			}
 			makeItemLinks(localStorage.key(i),linksLi); //create edit and delete links for each item in local storage
 		}
@@ -214,19 +226,19 @@ window.addEventListener("DOMContentLoaded", function(){
 */
 		var checkbox = document.forms[0].genre;
 		for (var i=0; i<checkbox.length; i++){
-			if (checkbox[i] == "RPG" && item.genre[1] == "RPG") {
+			if (checkbox[i].value == "RPG" && item.genre[1] == "RPG") {
 				checkbox[i].setAttribute("checked", "checked");
-			}else if(checkbox[i] == "FPS" && item.genre[1] == "FPS"){
+			}else if(checkbox[i].value == "FPS" && item.genre[1] == "FPS"){
 				checkbox[i].setAttribute("checked", "checked");
-			}else if(checkbox[i] == "Action/Adventure" && item.genre[1] == "Action/Adventure"){
+			}else if(checkbox[i].value == "Action/Adventure" && item.genre[1] == "Action/Adventure"){
 				checkbox[i].setAttribute("checked", "checked");
-			}else if(checkbox[i] == "RTS" && item.genre[1] == "RTS"){
+			}else if(checkbox[i].value == "RTS" && item.genre[1] == "RTS"){
 				checkbox[i].setAttribute("checked", "checked");
-			}else if(checkbox[i] == "Simulation" && item.genre[1] == "Simulation"){
+			}else if(checkbox[i].value == "Simulation" && item.genre[1] == "Simulation"){
 				checkbox[i].setAttribute("checked", "checked");
-			}else if(checkbox[i] == "Sports" && item.genre[1] == "Sports"){
+			}else if(checkbox[i].value == "Sports" && item.genre[1] == "Sports"){
 				checkbox[i].setAttribute("checked", "checked");
-			}else if(checkbox[i] == "Casual" && item.genre[1] == "Casual"){
+			}else if(checkbox[i].value == "Casual" && item.genre[1] == "Casual"){
 				checkbox[i].setAttribute("checked", "checked");
 			}
 		}									
@@ -236,7 +248,17 @@ window.addEventListener("DOMContentLoaded", function(){
 		$('rating').value = item.rating[1];
 		$('pdate').value = item.pdate[1];
 		$('players').value = item.players[1];
-		$('notes').value = item.notes[1];	
+		$('notes').value = item.notes[1];
+		
+		//remove initial listener from the input 'submit game' button
+		save.removeEventListener('click', storeData);
+		//change submit button value to edit button
+		$('submit').value = "Edit Game";
+		var editSubmit = $('submit');
+		//save the key value established in this function as a property of the editSubmit event
+		//so we can use that value when we save the data we edited
+		editSubmit.addEventListener('click', validate);
+		editSubmit.key = this.key;	
 	}
 	
 	function clearLocal(){
@@ -250,12 +272,68 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 	}
 	
+	function validate(e){
+		//define the elements we want to check
+		var getGname = $('gname');
+/*
+		var getPlatform = platformValue;
+		var getGenre = genreValue;
+*/
+		
+		//reset error messages
+		errMsg.innerHTML = "";
+		getGname.style.border = "1px solid black";
+		
+		//get error messages
+		var messageAry = [];
+		
+		//Game name validation
+		if(getGname.value === ""){
+			var gnameError = "Please enter a Game name."
+			getGname.style.border = "1px solid red";
+			messageAry.push(gnameError);
+/*
+		}
+		//Platform validation
+		if(getPlatform.value != "checked"){
+			var platformError = "Please pick a platform for your game."
+			getPlatform.style.border = "1px solid red";
+			messageAry.push(platformError);
+		}
+		//Genre validation
+		if(getGenre.value != "checked"){
+			var genreError = "Please enter at least one genre for your game."
+			getGenre.style.border = "1px solid red";
+			messageAry.push(genreError);
+		}
+*/
+		}
+	//If there were any errors, display them on the screen
+		if(messageAry.length >= 1){
+			for(var i=0,j=messageAry.length;i<j;i++){
+				var txt = document.createElement('li');
+				txt.innerHTML = messageAry[i];
+				errMsg.appendChild(txt);
+				errMsg.style.color = "red";
+			}
+			e.preventDefault();
+			return false;
+		}else {
+			//if all is ok, save data. send the key value (which came from the editData function)
+			//remember this key value passed through the editSubmit event listener as a property
+			storeData(this.key);
+		}
+		
+		
+	}
+	
 	//variable defaults
-	var numPlayers = ["--Number of Players--", "1, or Single Player only", "2 Players", "3 Players", "4 or more Players"],
+	var	numPlayers = ["--Number of Players--", "1, or Single Player only", "2 Players", "3 Players", "4 or more Players"],
 		platformValue,
 		genreValue,
 		genreArray = [],
-		favoriteValue = "No"
+		favoriteValue = "No",
+		errMsg = $('errors')
 	;
 	makeCats();
 	
@@ -265,7 +343,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	var clearLink = $('clear');
 	clearLink.addEventListener("click", clearLocal);
 	var save = $('submit');
-	save.addEventListener("click", storeData);
+	save.addEventListener("click", validate);
 
 
 });
