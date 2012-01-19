@@ -19,15 +19,16 @@ Term 0112
 	</head>
 	<body>
 		<h1>Game Collector</h1>
-		<form action="#" method="post" id="gameForm">
+		<form id="gameForm">
 			<fieldset id="addGameFieldset">
 				<legend></legend>
 				<span>Add A Game</span>
 				<ul id="errors"></ul>
 					<ul>
 						<li><label for="gname">Game Name:</label><input type="text" id="gname" /></li>
-						<li>Platform:
+						<li id="platform">Platform:
 							<ul>
+								<li><input type="radio" value="PC" id="pc" name="platform" /><label for="pc">PC</label></li>
 								<li><input type="radio" value="Xbox 360" id="xbox360" name="platform" /><label for="xbox360">Xbox 360</label></li>
 								<li><input type="radio" value="Playstation 3" id="ps3" name="platform" /><label for="ps3">Playstation 3</label></li>
 								<li><input type="radio" value="Nintendo Wii" id="wii" name="platform" /><label for="wii">Nintendo Wii</label></li>
@@ -35,7 +36,7 @@ Term 0112
 								<li><input type="radio" value="Other Handheld" id="otherHandheld" name="platform" /><label for="otherHandheld">Other Handheld</label></li>
 							</ul>
 						</li>
-						<li>Genre:
+						<li id="genre">Genre:
 							<ul>
 								<li><input type="checkbox" value="RPG" id="rpg" name="genre" /><label for="rpg">RPG</label></li>
 								<li><input type="checkbox" value="FPS" id="fps" name="genre" /><label for="fps">FPS</label></li>
