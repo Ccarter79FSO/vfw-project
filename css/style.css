@@ -111,3 +111,20 @@ div[id=items] {
 	
 }
 
+div[id=required]{
+	color: red;
+	font-weight: bold;
+	font-size: inherit;
+}
+
+li[id=gname]{
+
+	word-break: break-all;
+
+}
+
+span[id=required]{
+	color: red;
+	font-size: inherit;
+}
+
