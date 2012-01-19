@@ -106,8 +106,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			item.notes		= ["Notes:", $('notes').value];
 		//save data to local storage: use stringify to convert our object to a string
 		localStorage.setItem(id, JSON.stringify(item));
-		alert("Game has been added to your inventory!!");
-			
+		alert("Game has been added to your inventory!!");			
 	}
 	
 	function getData(){
@@ -186,7 +185,9 @@ window.addEventListener("DOMContentLoaded", function(){
 		$('gname').value = item.gname[1];
 		var radios = document.forms[0].platform;
 		for(var i=0;i<radios.length;i++){
-			if(radios[i].value == "Xbox 360" && item.platform[1] == "Xbox 360"){
+			if(radios[i].value == "PC" && item.platform[1] == "PC"){
+				radios[i].setAttribute("checked", "checked");
+			}else if(radios[i].value == "Xbox 360" && item.platform[1] == "Xbox 360"){
 				radios[i].setAttribute("checked", "checked");
 			}else if(radios[i].value == "Playstation 3" && item.platform[1] == "Playstation 3"){
 				radios[i].setAttribute("checked", "checked");
@@ -236,7 +237,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		//save the key value established in this function as a property of the editSubmit event
 		//so we can use that value when we save the data we edited
 		editSubmit.addEventListener('click', validate);
-		editSubmit.key = this.key;	
+		editSubmit.key = this.key;
 	}
 	
 	function deleteItem(){
@@ -264,15 +265,10 @@ window.addEventListener("DOMContentLoaded", function(){
 	function validate(e){
 		//define the elements we want to check
 		var getGname = $('gname');
-/*
-		var getPlatform = platformValue;
-		var getGenre = genreValue;
-*/
 		
 		//reset error messages
 		errMsg.innerHTML = "";
-		getGname.style.border = "1px solid black";
-		
+		getGname.style.border = "1px solid black";		
 		//get error messages
 		var messageAry = [];
 		
@@ -281,23 +277,9 @@ window.addEventListener("DOMContentLoaded", function(){
 			var gnameError = "Please enter a Game name."
 			getGname.style.border = "1px solid red";
 			messageAry.push(gnameError);
-/*
+			alert("You must enter a game name to proceed.");
 		}
-		//Platform validation
-		if(getPlatform.value != "checked"){
-			var platformError = "Please pick a platform for your game."
-			getPlatform.style.border = "1px solid red";
-			messageAry.push(platformError);
-		}
-		//Genre validation
-		if(getGenre.value != "checked"){
-			var genreError = "Please enter at least one genre for your game."
-			getGenre.style.border = "1px solid red";
-			messageAry.push(genreError);
-		}
-*/
-		}
-	//If there were any errors, display them on the screen
+		//If there were any errors, display them on the screen
 		if(messageAry.length >= 1){
 			for(var i=0,j=messageAry.length;i<j;i++){
 				var txt = document.createElement('li');
@@ -312,7 +294,6 @@ window.addEventListener("DOMContentLoaded", function(){
 			//remember this key value passed through the editSubmit event listener as a property
 			storeData(this.key);
 		}
-		
 		
 	}
 	
@@ -333,6 +314,5 @@ window.addEventListener("DOMContentLoaded", function(){
 	clearLink.addEventListener("click", clearLocal);
 	var save = $('submit');
 	save.addEventListener("click", validate);
-
 
 });
