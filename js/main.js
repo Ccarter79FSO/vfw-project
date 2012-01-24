@@ -1,4 +1,4 @@
- /*
+/*
 Christopher Carter
 VFW Project week 3
 Term 0112
@@ -112,7 +112,8 @@ window.addEventListener("DOMContentLoaded", function(){
 	function getData(){
 		toggleControls("on"); 
 		if (localStorage.length===0){
-			alert("There is no data in storage!");
+			alert("There is no data in storage, so default data has been added.");
+			autoFillData();
 		}
 		//write data from local storage to the browswer
 		var makeDiv = document.createElement('div');
@@ -145,6 +146,16 @@ window.addEventListener("DOMContentLoaded", function(){
 			makeItemLinks(localStorage.key(i),linksLi); //create edit and delete links for each item in local storage
 		}
 	
+	}
+	
+	//auto populate local storage
+	function autoFillData(){
+		//the actual JSON object date required for this to work is coming from json.js, which is loaded from the additem.html page
+		//store the JSON object into local storage
+		for (var n in json){
+			var id = Math.floor(Math.random()*100000001);
+			localStorage.setItem(id, JSON.stringify(json[n]));
+		}
 	}
 	
 	//function to create edit and delete links for each stored item when displayed
