@@ -128,3 +128,37 @@ span[id=required]{
 	font-size: inherit;
 }
 
+img[id=Xbox]{
+	height: 50px;
+	width: 50px;
+}
+
+img[id=PC]{
+	height: 50px;
+	width: 50px;
+}
+
+img[id=PS3]{
+	height: 50px;
+	width: 50px;
+}
+
+img[id=Wii]{
+	height: 50px;
+	width: 50px;
+}
+
+img[id=DS]{
+	height: 50px;
+	width: 50px;
+}
+
+img[id=Other]{
+	height: 50px;
+	width: 50px;
+}
+
+#items ul {
+	margin-left: -20px;
+	list-style-type: none;
+}
