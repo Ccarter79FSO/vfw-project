@@ -119,6 +119,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		var makeDiv = document.createElement('div');
 		makeDiv.setAttribute("id", "items");
 		var makeList = document.createElement('ul');
+		var setUl = makeList.setAttribute("id", "items");
 		makeDiv.appendChild(makeList);
 		document.body.appendChild(makeDiv);
 		$('items').style.display = "block";
@@ -132,6 +133,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			var obj = JSON.parse(value);
 			var makeSubList = document.createElement('ul');
 			makeLi.appendChild(makeSubList);
+			getImage(obj.platform[1], makeSubList);
 			var breakTag = document.createElement('br');
 			makeLi.appendChild(breakTag);
 			for(var n in obj){
@@ -140,12 +142,21 @@ window.addEventListener("DOMContentLoaded", function(){
 				var optSubText = obj[n][0]+" "+obj[n][1];
 				makeSubLi.innerHTML = optSubText;
 				makeSubList.appendChild(linksLi);
-
-				
 			}
 			makeItemLinks(localStorage.key(i),linksLi); //create edit and delete links for each item in local storage
 		}
 	
+	}
+	
+	//get the image for the correct platform being displayed
+	function getImage(platName, makeSubList){
+		var imageLi = document.createElement('li');
+		makeSubList.appendChild(imageLi);
+		var newImage = document.createElement('img');
+		var setSrc = newImage.setAttribute("src", "images/" + platName + ".png");
+		var setID = newImage.setAttribute("id", platName);
+		imageLi.appendChild(newImage);
+		
 	}
 	
 	//auto populate local storage

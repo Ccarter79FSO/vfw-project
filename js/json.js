@@ -7,7 +7,7 @@ Term 0112
 var json = {
 	"Game1": {
 		"gname"		:["Game Name:", "Game 1"],
-		"platform"	:["Platform:", "Xbox 360"],
+		"platform"	:["Platform:", "Xbox"],
 		"genre"		:["Genre:", "FPS"],
 		"fav"		:["Favorite:", "Yes"],
 		"rating"	:["Rating:", "5"],
@@ -27,7 +27,7 @@ var json = {
 	},
 	"Game3": {
 		"gname"		:["Game Name:", "Game 3"],
-		"platform"	:["Platform:", "Playstation 3"],
+		"platform"	:["Platform:", "PS3"],
 		"genre"		:["Genre:", "RPG, Action/Adventure"],
 		"fav"		:["Favorite:", "Yes"],
 		"rating"	:["Rating:", "10"],
