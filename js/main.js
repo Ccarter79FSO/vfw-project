@@ -15,6 +15,11 @@ window.addEventListener("DOMContentLoaded", function(){
 		return theElement;
 	}
 	
+	function showValue(newValue){
+		var range = $('range');
+		range.innerHTML=newvalue;
+	}
+	
 	//create select field element and populate with options
 	function makeCats(){
 		var formTag = document.getElementsByTagName("form"); //formTag is an array of all the form tags
@@ -55,7 +60,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		if($('fav').checked) {
 			favoriteValue = $('fav').value;
 		} else {
-			favoriteValue = "No"
+			favoriteValue = "No";
 		}
 	}
 	
@@ -83,12 +88,12 @@ window.addEventListener("DOMContentLoaded", function(){
 	function storeData (key) {
 		//if there is no key, then this is a brand new item and needs a new key
 		if(!key){
-			var id 			  	= Math.floor(Math.random()*100000001);
+			var id = Math.floor(Math.random()*100000001);
 		//set the id to the existing key we're editing so that it will save over the data
 		//the key is the same key that's been passed along from the editSubmit event handler
 		//to the validate function, and then passed here in the storeData function
 		}else {
-			id = key;
+			var id = key;
 		}
 		//gather up all our form field values aand store in an object
 		//object properties are going to contain and array with the form label and input value
@@ -275,7 +280,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	function clearLocal(){
 		if (localStorage.lenth===0){
-			alert("There is no data to clear.")
+			alert("There is no data to clear.");
 		}else{
 			localStorage.clear();
 			alert("All data have been deleted.");
@@ -296,7 +301,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		
 		//Game name validation
 		if(getGname.value === ""){
-			var gnameError = "Please enter a Game name."
+			var gnameError = "Please enter a Game name.";
 			getGname.style.border = "1px solid red";
 			messageAry.push(gnameError);
 			alert("You must enter a game name to proceed.");
@@ -328,6 +333,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		errMsg = $('errors')
 	;
 	makeCats();
+
 	
 	//set link & submit click events
 	var displayLink = $('displayLink');
