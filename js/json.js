@@ -28,7 +28,7 @@ var json = {
 	"Game3": {
 		"gname"		:["Game Name:", "Game 3"],
 		"platform"	:["Platform:", "PS3"],
-		"genre"		:["Genre:", "RPG, Action/Adventure"],
+		"genre"		:["Genre:", "RPG"],
 		"fav"		:["Favorite:", "Yes"],
 		"rating"	:["Rating:", "10"],
 		"pdate"		:["Purchase Date:", "01-15-2012"],

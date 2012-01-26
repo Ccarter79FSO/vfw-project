@@ -209,15 +209,15 @@ window.addEventListener("DOMContentLoaded", function(){
 		for(var i=0;i<radios.length;i++){
 			if(radios[i].value == "PC" && item.platform[1] == "PC"){
 				radios[i].setAttribute("checked", "checked");
-			}else if(radios[i].value == "Xbox 360" && item.platform[1] == "Xbox 360"){
+			}else if(radios[i].value == "Xbox" && item.platform[1] == "Xbox"){
 				radios[i].setAttribute("checked", "checked");
-			}else if(radios[i].value == "Playstation 3" && item.platform[1] == "Playstation 3"){
+			}else if(radios[i].value == "PS3" && item.platform[1] == "PS3"){
 				radios[i].setAttribute("checked", "checked");
-			}else if(radios[i].value == "Nintendo Wii" && item.platform[1] == "Nintendo Wii"){
+			}else if(radios[i].value == "Wii" && item.platform[1] == "Wii"){
 				radios[i].setAttribute("checked", "checked");
-			}else if(radios[i].value == "Nintendo DS/DSi/3DS" && item.platform[1] == "Nintendo DS/DSi/3DS"){
+			}else if(radios[i].value == "DS" && item.platform[1] == "DS"){
 				radios[i].setAttribute("checked", "checked");
-			}else if(radios[i].value == "Other Handheld" && item.platform[1] == "Other Handheld"){
+			}else if(radios[i].value == "Other" && item.platform[1] == "Other"){
 				radios[i].setAttribute("checked", "checked");
 			}
 		}
@@ -243,7 +243,7 @@ window.addEventListener("DOMContentLoaded", function(){
 				}
 			}
 		}
-		if(item.fav[1] == "Fav"){
+		if(item.fav[1] == "Yes"){
 			$('fav').setAttribute('checked','checked');
 		}
 		$('rating').value = item.rating[1];
