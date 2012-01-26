@@ -15,11 +15,6 @@ window.addEventListener("DOMContentLoaded", function(){
 		return theElement;
 	}
 	
-	function showValue(newValue){
-		var range = $('range');
-		range.innerHTML=newvalue;
-	}
-	
 	//create select field element and populate with options
 	function makeCats(){
 		var formTag = document.getElementsByTagName("form"); //formTag is an array of all the form tags
