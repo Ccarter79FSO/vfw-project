@@ -32,7 +32,7 @@ var json = {
 		"fav"		:["Favorite:", "Yes"],
 		"rating"	:["Rating:", "10"],
 		"pdate"		:["Purchase Date:", "01-15-2012"],
-		"players"	:["Number of Players:", "1, or Single Player Only"],
+		"players"	:["Number of Players:", "1, or Single Player only"],
 		"notes"		:["Notes:", "Test3"]
 	}
 
