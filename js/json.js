@@ -5,10 +5,11 @@ Term 0112
 */
 
 var json = {
+	//"genreAry:"		:["FPS", "RPG", "Action/Adventure", "RTS", "Simulation", "Sports", "Casual"],
 	"Game1": {
 		"gname"		:["Game Name:", "Game 1"],
 		"platform"	:["Platform:", "Xbox"],
-		"genre"		:["Genre:", "FPS"],
+		"genre"		:["Genre:", ["FPS"]],
 		"fav"		:["Favorite:", "Yes"],
 		"rating"	:["Rating:", "5"],
 		"pdate"		:["Purchase Date:", "01-11-2012"],
@@ -18,7 +19,7 @@ var json = {
 	"Game2": {
 		"gname"		:["Game Name:", "Game2"],
 		"platform"	:["Platform:", "PC"],
-		"genre"		:["Genre:", "RTS"],
+		"genre"		:["Genre:", ["RTS"]],
 		"fav"		:["Favorite:", "Yes"],
 		"rating"	:["Rating:", "9"],
 		"pdate"		:["Purchase Date:", "01-17-2012"],
@@ -28,7 +29,7 @@ var json = {
 	"Game3": {
 		"gname"		:["Game Name:", "Game 3"],
 		"platform"	:["Platform:", "PS3"],
-		"genre"		:["Genre:", "RPG"],
+		"genre"		:["Genre:", ["RPG", "Action/Adventure"]],
 		"fav"		:["Favorite:", "Yes"],
 		"rating"	:["Rating:", "10"],
 		"pdate"		:["Purchase Date:", "01-15-2012"],
